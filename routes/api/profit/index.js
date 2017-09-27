@@ -1,13 +1,12 @@
 let express = require('express');
 let router = express.Router();
-let api = require('./api/index');
 
-router.use('/api/', api);
+router.use('/api/',);
 
-/* GET home page. */
+/* GET all profits. */
 router.get('/', function (req, res, next) {
-    res.render('index', {title: 'Express'});
+    //TODO: implement
+    res.json(['1', '2', '3']);
 });
-
 
 module.exports = router;
