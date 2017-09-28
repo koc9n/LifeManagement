@@ -1,0 +1,20 @@
+{
+  "development": {
+    "port": 3000,
+    "db" : {
+      "url" : "localhost:27017/lm"
+    }
+  },
+  "test": {
+    "port": 80,
+    "db" : {
+      "url" : "localhost:27017/lm"
+    }
+  },
+  "production": {
+    "port": 80,
+    "db" : {
+      "url" : "localhost:27017/lm"
+    }
+  }
+}
