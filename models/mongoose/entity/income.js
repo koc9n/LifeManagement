@@ -13,12 +13,7 @@ const expense = new Schema({
         nullable: true,
         default: null
     },
-    startDate: {
-        type: Date,
-        nullable: false,
-        default: moment.now()
-    },
-    endDate: {
+    performedAt: {
         type: Date,
         nullable: false,
         default: moment.now()

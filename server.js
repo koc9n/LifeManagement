@@ -28,7 +28,7 @@ db.once('open', () => {
     // session setup
     let expiryDate = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
     app.use(session({
-        secret: 's3cUre lIF3',
+        secret: 's3cUre lIF3 хахаха',
         name: 'sid',
         cookie: {
             secure: true,
@@ -42,14 +42,19 @@ db.once('open', () => {
     app.set('trust proxy', 1); // trust first proxy
     app.use(helmet());
 
-    app.use(favicon(path.join(__dirname, 'public', 'BE.svg')));
+    // app.use(favicon(path.join(__dirname, 'public', 'lm.ico')));
     app.use(morgan('dev')); // TODO: check constructor params for morgan
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: false}));
     app.use(cookieParser());
 
-    app.use(lessMiddleware(path.join(__dirname, 'public')));
-    app.use('/assets', express.static(path.join(__dirname, 'public')));
+    // css handled by webpack
+    // app.use(lessMiddleware(path.join(__dirname, 'public')));
+
+    // TODO: normally give this work to nginx !!!
+    app.use('/', express.static(path.join(__dirname, 'public/vue/dist')));
+
+    // app routes
     app.use(routes);
 
     let http = require('http');
